@@ -1,0 +1,108 @@
+.masthead {
+  align-items: center;
+  background-color: $color-primary;
+  color: $color-text-inverse;
+  backface-visibility: hidden;
+  display: flex;
+  min-width: 100%;
+  padding-bottom: $gutter-half;
+  padding-left: $gutter-half;
+  padding-right: $gutter-half;
+  padding-top: $gutter-half;
+  top: 0;
+  width: 100%;
+}
+
+.tribune-logo {
+  @include site-logo-height(18);
+  filter: drop-shadow(1px 1px 1px transparentize($color-primary, 0.7));
+  opacity: 0.95;
+
+  @include mq($from: m) {
+    @include site-logo-height(20);
+    margin-left: $gutter-quarter;
+  }
+}
+
+.masthead__title {
+  color: $color-white;
+  display: none;
+  font-family: $font-sans-serif;
+  font-weight: $font-weight-bold;
+  font-size: to-rem(14);
+  letter-spacing: 0.05em;
+  line-height: 1;
+  margin-left: $gutter;
+
+  @include mq($from: s) {
+    display: block;
+  }
+
+  > a {
+    color: $color-offwhite;
+    text-decoration: none;
+
+    &:active,
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.masthead__actionables {
+  align-items: center;
+  display: flex;
+  margin-left: auto;
+}
+
+.masthead__actionable + .masthead__actionable {
+  margin-left: $gutter;
+}
+
+.masthead__share {
+  color: $color-white;
+  font-size: to-rem(20);
+  text-decoration: none;
+  @include transition(color 300ms $curve-standard);
+
+  > svg {
+    vertical-align: bottom;
+  }
+}
+
+.masthead__share--facebook {
+  &:active,
+  &:hover {
+    color: $color-facebook;
+  }
+
+  @include mq($until: xs) {
+    display: none;
+  }
+}
+
+.masthead__share--twitter {
+  &:active,
+  &:hover {
+    color: $color-twitter;
+  }
+
+  @include mq($until: xs) {
+    display: none;
+  }
+}
+
+.masthead__share--comments {
+  font-size: to-rem(16);
+
+  &:active,
+  &:hover {
+    color: $color-text-link;
+  }
+}
+
+.masthead__comment-total {
+  font-size: 0.625em;
+  line-height: 1;
+  margin-top: 0.125em;
+}
