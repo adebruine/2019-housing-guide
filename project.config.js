@@ -25,15 +25,10 @@ module.exports = {
    */
   files: [
     {
-      fileId: '1p1ptvRmWtk0VDJz9ChgnPnwXND-IkzJdwu4x9eCHwKI',
-      type: 'doc',
-      name: 'text',
-    },
-    {
-      fileId: '17to7r_NkbAXQCOaLrIQyAgqWsAFCoF_SKlt0RnUG2VA',
+      fileId: '1A8ewpQcOSPpM9qAwVNKsm_63x0n5RlfcJy7mpxJp158',
       type: 'sheet',
-      name: 'data',
-    },
+      name: 'dorms',
+    }
   ],
   /**
    * The dataMutators option makes it possible to modify what's returned by

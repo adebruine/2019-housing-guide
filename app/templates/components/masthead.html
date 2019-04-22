@@ -1,8 +1,17 @@
-<header class="masthead" role="banner">
-  <a href="http://www.texastribune.org/">
-    <img class="tribune-logo" src="https://apps.texastribune.org/assets/images/tt-logo-white.png" alt="The Texas Tribune">
-  </a>
-  <div class="masthead__actionables">
-    <p class="masthead__actionable masthead__donate"><a class="button button--small button--donate" href="https://support.texastribune.org/">Donate</a></p>
-  </div>
-</header>
+<nav title="navigation">
+    <div id="global-header">
+        <div id="global-branding">
+          <div class="navbar-nbn-logo">
+            <a class="navbar-brand" href="http://www.northbynorthwestern.com/" title="North by Northwestern" target="_top">
+              <img src="assets/nbn-white.png">
+            </a>
+          </div>
+        </div>
+
+        <ul class="nav navbar-nav navbar-right">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ META.url | urlencode }}"><i class="fab fa-facebook"></i></a></li>
+        <li><a href="https://twitter.com/intent/tweet?url={{ META.url | urlencode }}&amp;via=nbn_tweets&amp;text={{META.share.twitter.share_tweet | urlencode}}"><i class="fab fa-twitter"></i></a></li>
+        </ul>
+
+    </div>
+</nav>

@@ -1,108 +1,100 @@
-.masthead {
-  align-items: center;
-  background-color: $color-primary;
-  color: $color-text-inverse;
-  backface-visibility: hidden;
-  display: flex;
-  min-width: 100%;
-  padding-bottom: $gutter-half;
-  padding-left: $gutter-half;
-  padding-right: $gutter-half;
-  padding-top: $gutter-half;
-  top: 0;
-  width: 100%;
-}
+#global-header {
+//  @include clearfix;
+  background: $nbn-purple;
+  height: 45px;
 
-.tribune-logo {
-  @include site-logo-height(18);
-  filter: drop-shadow(1px 1px 1px transparentize($color-primary, 0.7));
-  opacity: 0.95;
-
-  @include mq($from: m) {
-    @include site-logo-height(20);
-    margin-left: $gutter-quarter;
-  }
-}
-
-.masthead__title {
-  color: $color-white;
-  display: none;
-  font-family: $font-sans-serif;
-  font-weight: $font-weight-bold;
-  font-size: to-rem(14);
-  letter-spacing: 0.05em;
-  line-height: 1;
-  margin-left: $gutter;
-
-  @include mq($from: s) {
-    display: block;
+  #global-header, ul {
+    //@include clearfix;
   }
 
-  > a {
-    color: $color-offwhite;
-    text-decoration: none;
+  .navbar-nbn-logo {
+    display: inline;
+    font-size: 1.25em;
+    width: 100%;
+    img {
+      height: 28px;
+      margin-top:8.5px;
+      margin-left: 8.5px;
+    }
+  }
 
-    &:active,
-    &:hover {
-      text-decoration: underline;
+  a {
+    color: $white;
+
+      &:hover, &:focus{
+        text-decoration: none;
+        opacity: .8;
+      }
+    }
+
+  #global-branding {
+    float: left;
+  }
+
+  .navbar-right {
+    float: right;
+
+    margin-right: 1em;
+
+    li > a:hover {
+      background: $nbn-purple;
+    }
+    li {
+      float: left;
+    }
+  }
+
+  #nav-micro {
+    float: right;
+
+    .icon.icon-pro-small-bold {
+      font-size: 1em;
+      line-height: 2.29166666666667em;
+      padding: 0 .3125em;
+    }
+
+    ul {
+      list-style: none;
+      margin-bottom: 1px;
+      padding-bottom: 0;
+
+      li{
+        float:left;
+      }
+
+      li > a {
+        background: $nbn-purple;
+        border-left: 1px solid $nbn-black;
+        display: block;
+        //font-family: $tablet;
+        font-weight: 700;
+        line-height: 45px;
+        min-width: 2.5em;
+        padding: 0 .9375em;
+        position: relative;
+        text-align: center;
+      }
     }
   }
 }
 
-.masthead__actionables {
-  align-items: center;
-  display: flex;
-  margin-left: auto;
-}
-
-.masthead__actionable + .masthead__actionable {
-  margin-left: $gutter;
-}
-
-.masthead__share {
-  color: $color-white;
-  font-size: to-rem(20);
-  text-decoration: none;
-  @include transition(color 300ms $curve-standard);
-
-  > svg {
-    vertical-align: bottom;
-  }
-}
-
-.masthead__share--facebook {
-  &:active,
-  &:hover {
-    color: $color-facebook;
+//Light Theme
+.light-theme {
+  #global-header {
+    background: $white;
+    border-bottom: 0;
   }
 
-  @include mq($until: xs) {
-    display: none;
-  }
-}
-
-.masthead__share--twitter {
-  &:active,
-  &:hover {
-    color: $color-twitter;
+  #global-header a, #global-footer a  {
+    color: $nbn-purple;
   }
 
-  @include mq($until: xs) {
-    display: none;
+  #global-header.icon , nav .icon {
+  color: $nbn-purple;
   }
-}
 
-.masthead__share--comments {
-  font-size: to-rem(16);
-
-  &:active,
-  &:hover {
-    color: $color-text-link;
+  .micro-list>li>a {
+  background: $white;
+  border: 0;
   }
-}
-
-.masthead__comment-total {
-  font-size: 0.625em;
-  line-height: 1;
-  margin-top: 0.125em;
 }

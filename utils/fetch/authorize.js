@@ -13,13 +13,13 @@ const SCOPES = ['https://www.googleapis.com/auth/drive.readonly'];
 async function getSecrets() {
   const clientSecretsFile =
     process.env.CLIENT_SECRETS_FILE ||
-    path.join(os.homedir(), '.tt_kit_google_client_secrets.json');
+    path.join(os.homedir(), '.credentials.json');
 
   let secrets;
 
   try {
     const data = await fs.readJson(clientSecretsFile);
-    secrets = data.installed;
+    secrets = await fs.readJson(clientSecretsFile);
   } catch (err) {
     if (err.code === 'ENOENT') {
       throw new Error(
@@ -34,7 +34,6 @@ async function getSecrets() {
   const googleClientSecret = secrets.client_secret;
   const googleRedirectUri = secrets.redirect_uris[0];
   const googleTokenFile =
-    process.env.GOOGLE_TOKEN_FILE ||
     path.join(os.homedir(), '.google_drive_fetch_token');
 
   return {
@@ -60,6 +59,8 @@ async function getAuth() {
     googleClientSecret,
     googleRedirectUri
   );
+
+  console.log(auth);
 
   let token;
 
