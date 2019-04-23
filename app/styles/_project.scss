@@ -1,3 +1,48 @@
+.title-wrapper {
+  width: 1000px;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+  padding: 20px 45px;
+
+  .nbn-presents {
+    width: 100%;
+    //text-align: left;
+
+    right: 0px;
+    display: block;
+
+    //float: right;
+
+    .res-e > img {
+      height: 20px;
+
+    }
+  }
+
+  .head {
+    text-align: center;
+    font-size: 50px;
+    text-transform: uppercase;
+    padding: 10px 0;
+
+  }
+  span.the {
+    font-size: 30px;
+  }
+
+  span.hg {
+    font-weight: $font-weight-bold;
+  }
+
+  .blurb {
+    max-width: 600px;
+    margin: 0 auto;
+    padding-top: 30px;
+  }
+}
+
+
 .wrapper {
   display: flex;
 
@@ -8,6 +53,7 @@
 
   .dorms-list {
     max-width: 500px;
+    font-family: $body;
 
     td {
       padding-right: 10px;

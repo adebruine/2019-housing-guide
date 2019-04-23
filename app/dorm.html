@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% set jsPackName = 'main' %}
+{% set context = data.text %}
+
+{% set authorComma = joiner() %}
+
+{% set dorms = data.dorms.dorms[0] %}
+
+{% block content %}
+
+<div class="dorm-name"> {{ dorms.name }}</div>
+
+{% endblock content %}
+
+{% block inline_data %}
+<script>
+  window.ttData = {
+    gutenTag: '{{ context.guten_tag or "subject-politics" }}'
+  };
+</script>
+{% endblock inline_data %}

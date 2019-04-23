@@ -1,6 +1,4 @@
 {% extends 'base.html' %}
-{% from 'macros/prose.html' import prose %}
-{% from 'macros/ads.html' import ad %}
 
 {% set jsPackName = 'main' %}
 {% set context = data.text %}
@@ -8,8 +6,9 @@
 
 {% set dorms = data.dorms.dorms %}
 
-
+{% include 'templates/components/housing-deck.html'%}
 {% block content %}
+
   <div class="wrapper">
     <div id="mapid"></div>
 
@@ -32,38 +31,38 @@
     </tbody>
     </table>
 
-    <div class="filter-dorms">
+  </div>
 
-      <div class="filter-option">Campus area</div>
-      <ul class="campus-area">
-        <li><input class="filter" id="north" type="checkbox">North campus</li>
-        <li><input  class="filter" id="south" type="checkbox">South campus</li>
-      </ul>
+  <div class="filter-dorms">
 
-      <div class="filter-option">Dorm size</div>
-      <ul class="size">
-        <li><input  class="filter" id="small" type="checkbox">Small</li>
-        <li><input  class="filter" id="medium" type="checkbox">Medium</li>
-        <li><input  class="filter" id="large" type="checkbox">Large</li>
-      </ul>
+    <div class="filter-option">Campus area</div>
+    <ul class="campus-area">
+      <li><input class="filter" id="north" type="checkbox">North campus</li>
+      <li><input  class="filter" id="south" type="checkbox">South campus</li>
+    </ul>
 
-      <div class="filter-option">Type of dorm</div>
-      <ul class="type">
-        <li><input  class="filter" id="hall" type="checkbox">Res Hall</li>
-        <li><input  class="filter" id="college" type="checkbox">Res College</li>
-        <li><input  class="filter" id="community" type="checkbox">Res Community</li>
-      </ul>
+    <div class="filter-option">Dorm size</div>
+    <ul class="size">
+      <li><input  class="filter" id="small" type="checkbox">Small</li>
+      <li><input  class="filter" id="medium" type="checkbox">Medium</li>
+      <li><input  class="filter" id="large" type="checkbox">Large</li>
+    </ul>
 
-      <div class="filter-option">Miscellaneous perks</div>
-      <ul class="AC">
-        <li><input  class="filter" id="AC" type="checkbox">Has A.C.</li>
-        <li><input  class="filter" id="dining" type="checkbox">Has dining hall</li>
+    <div class="filter-option">Type of dorm</div>
+    <ul class="type">
+      <li><input  class="filter" id="hall" type="checkbox">Res Hall</li>
+      <li><input  class="filter" id="college" type="checkbox">Res College</li>
+      <li><input  class="filter" id="community" type="checkbox">Res Community</li>
+    </ul>
 
-      </ul>
+    <div class="filter-option">Miscellaneous perks</div>
+    <ul class="AC">
+      <li><input  class="filter" id="AC" type="checkbox">Has A.C.</li>
+      <li><input  class="filter" id="dining" type="checkbox">Has dining hall</li>
 
-      <div class="clear-filter">Clear filters</div>
-    </div>
+    </ul>
 
+    <div class="clear-filter">Clear filters</div>
   </div>
   </div>
 

@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Lora|PT+Sans+Narrow');
+
+// NBN font
+$headline: 'PT Sans Narrow';
+$body: 'Lora';
+
 // NBN Colors
 $nbn-purple: rgb(80, 31, 132);
 $nbn-red: rgb(236, 56, 14);
@@ -55,10 +61,6 @@ $line-height-body: 1.55;
 
 $font-weight-light: 300;
 $font-weight-normal: 400;
-// none of our default fonts use these, but just in case you pull in some that
-// do
-// $font-weight-medium: 500;
-// $font-weight-semibold: 600;
 $font-weight-bold: 700;
 
 $font-sans-serif: 'Open Sans', Helvetica, Arial, sans-serif;
