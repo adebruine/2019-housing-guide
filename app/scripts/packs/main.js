@@ -1,7 +1,10 @@
 import '../kickstart';
+import writeDormPages from '../utils/dorm-pages'
 
 var dormData = require('./../../../data/dorms.json');
 var dormList = dormData.dorms;
+
+writeDormPages(dormList)
 
 var purpleIcon = new L.Icon({
   iconUrl:
