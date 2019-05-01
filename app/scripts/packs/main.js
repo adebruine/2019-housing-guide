@@ -1,7 +1,10 @@
 import '../kickstart';
+import makeDirs from '../utils/make-dirs';
 
-var dormData = require('./../../../data/dorms.json');
-var dormList = dormData.dorms;
+const dormData = require('./../../../data/dorms.json');
+const dormList = dormData.dorms;
+
+makeDirs('dorm', dormList)
 
 var purpleIcon = new L.Icon({
   iconUrl:
@@ -76,7 +79,7 @@ $('.dorm-row').mouseout(function() {
 // filtering!!
 
 // just all of the dorm names, to match against
-var allDorms = dormList.map(function(dorm) {
+const allDorms = dormList.map(function(dorm) {
   return dorm.name;
 });
 console.log(allDorms);
