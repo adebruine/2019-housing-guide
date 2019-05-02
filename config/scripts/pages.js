@@ -1,7 +1,6 @@
-console.log("hey")
-function generateArticles(){
-
-  console.log("yo yo")
+console.log('hey');
+function generateArticles() {
+  console.log('yo yo');
   var stories = copy.stories;
   var storytemp = Handlebars.compile(articleHtml);
 
@@ -13,18 +12,20 @@ function generateArticles(){
       authorlink: stories[x]['author-link'],
       lead: stories[x]['lead'],
       story: stories[x]['story'],
-      link: 'http://apps.northbynorthwestern.com/year-in-media/2017/' + stories[x]['slug'],
-      index: x+1,
-    }
+      link:
+        'http://apps.northbynorthwestern.com/year-in-media/2017/' +
+        stories[x]['slug'],
+      index: x + 1,
+    };
     //create the directory if not already created
-    var dir = './out/'+context.slug;
-    mkdirp.sync(dir, function (err) {
-      if (err) console.error(err)
-      else console.log('pow!')
-    })
+    var dir = './out/' + context.slug;
+    mkdirp.sync(dir, function(err) {
+      if (err) console.error(err);
+      else console.log('pow!');
+    });
 
     //create an html file in the directory
-    var fileName = './out/'+context.slug+'/index.html';
+    var fileName = './out/' + context.slug + '/index.html';
     var stream = fs.createWriteStream(fileName);
 
     var articleResult = storytemp(context);
@@ -32,5 +33,5 @@ function generateArticles(){
 
     stream.write(prettifiedResult);
   }
-    stream.end();
+  stream.end();
 }

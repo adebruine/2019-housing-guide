@@ -1,16 +1,10 @@
+{% set creds = data.dorms.credits %}
+
 <footer class="footer" role="contentinfo">
   <div class="footer-container">
-    <div class="footer-copyright">
-      &copy; {{ CURRENT_YEAR }} <a class="footer-link" href="http://www.texastribune.org/">The Texas Tribune</a>
-    </div>
-    <ul class="footer-links">
-      <li class="footer-nav-item"><a class="footer-link" href="http://www.texastribune.org/about/">About Us</a></li>
-      <li class="footer-nav-item"><a class="footer-link" href="http://www.texastribune.org/contact/">Contact Us</a></li>
-      <li class="footer-nav-item"><a class="footer-link" href="http://www.texastribune.org/support-us/donors-and-members/">Who Funds Us?</a></li>
-      <li class="footer-nav-item"><a class="footer-link" href="http://www.texastribune.org/terms-of-service/">Terms of Service</a></li>
-      <li class="footer-nav-item"><a class="footer-link" href="http://www.texastribune.org/ethics/">Code of Ethics</a></li>
-      <li class="footer-nav-item"><a class="footer-link" href="http://www.texastribune.org/privacy/">Privacy Policy</a></li>
-      <li class="footer-nav-item"><a class="footer-link footer-link-donate" href="https://support.texastribune.org/">Donate</a></li>
-    </ul>
+    <div class="credits" id="reporting">Reporting by {{ creds[0].reporting }}</div>
+    <div class="credits" id="video">Videos by {{ creds[0].videos }}</div>
+    <div class="credits" id="editing">Photos by {{ creds[0].photos }}<br><br>Editing by {{ creds[0].editing }}</div>
+    <div class="credits" id="development">Design and development by {{ creds[0].development }}</div>
   </div>
 </footer>

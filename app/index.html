@@ -5,6 +5,8 @@
 {% set authorComma = joiner() %}
 
 {% set dorms = data.dorms.dorms %}
+{% set recirc = data.dorms.featured_articles %}
+
 
 {% block content %}
 {% include 'components/housing-masthead.html' %}
@@ -66,6 +68,50 @@
     <div class="clear-filter">Clear filters</div>
   </div>
   </div>
+
+<hr>
+
+  <div class="filter-wrapper">
+    <div class="about">About the filters</div>
+    <div class="filter-wrapper-flex">
+      <div class="about-filters">
+        <p class="filter-hed">North and South Campus</p>
+        <p>We chose to divide the unofficial "North Campus" and "South Campus" by Foster Street, so anything south of Foster is South Campus and anything north of Foster is North Campus.</p>
+      </div>
+      <div class="about-filters">
+        <p class="filter-hed">Types of halls</p>
+        <p>The university categorizes its halls into four types. A residential community has student-organized events and live-in faculty. A residential college has a theme and offers activities and specialized classes supported by faculty fellows. Special interest housing includes Interfaith Residence Hall in 1835 Hinman, GREEN House and other halls with particular focuses. A residence hall offers a classic college experience.</p>
+      </div>
+      <div class="about-filters">
+        <p class="filter-hed">Gender Open Housing</p>
+        <p>Gender Open Housing has existed since 2010 as "an arrangement whereby students, regardless of sex, gender, or gender identity, are permitted to share a room or suite in select areas of Northwestern’s residence halls." Currently, no first-year students are eligible for gender open housing.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="recirc">
+    <div class="nbn-blurb">
+      <p><a href="http://northbynorthwestern.com/" target="_blank">North by Northwestern</a> is an independent student-run publication that covers all things Northwestern, from campus speeches to the best campus hookup spots. We don't publish over the summer, but follow us on <a href="https://twitter.com/nbn_tweets" target="_blank">Twitter</a> and on <a href="https://www.facebook.com/northbynorthwestern/" target="_blank">Facebook</a> for content starting during Wildcat Welcome.</p>
+      <br>
+      <p>In the meantime, check out some of these other North by Northwestern stories to help you prepare for freshman year:</p>
+    </div>
+    <div class="recirc-flex">
+      {% for item in recirc %}
+      <a href="{{ item.url }}" target="_blank">
+        <div class="story">
+          <img src="{{ item.img }}">
+          <p class="title">{{ item.title }}</p>
+          <p>{{ item.teaser_sentence }}</p>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+
+
+
 
 {% endblock content %}
 

@@ -27,17 +27,11 @@ var grayIcon = new L.Icon({
 
 var mymap = L.map('mapid').setView([42.055984, -87.675171], 15);
 
-L.tileLayer(
-  'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYWRlYnJ1aW5lIiwiYSI6ImNqYWNyczh1YjBjdjAyd28ybnVrN2FieDcifQ.4MiOQFZ5P1NJ9yyPiiGSWA',
-  {
-    attribution:
-      'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox.streets',
-    accessToken:
-      'pk.eyJ1IjoiYWRlYnJ1aW5lIiwiYSI6ImNqYWNyczh1YjBjdjAyd28ybnVrN2FieDcifQ.4MiOQFZ5P1NJ9yyPiiGSWA',
-  }
-).addTo(mymap);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png', {
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+	subdomains: 'abcd',
+	maxZoom: 19
+}).addTo(mymap);
 
 var markers = {};
 
