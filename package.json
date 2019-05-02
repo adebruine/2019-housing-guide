@@ -13,7 +13,8 @@
     "serve": "npm start",
     "start": "NODE_ENV=development node ./config/scripts/develop.js",
     "workspace:pull": "node ./utils/deployment/pull-workspace.js",
-    "workspace:push": "node ./utils/deployment/push-workspace.js"
+    "workspace:push": "node ./utils/deployment/push-workspace.js",
+    "pages": "NODE_ENV=development node ./config/scripts/pages.js"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

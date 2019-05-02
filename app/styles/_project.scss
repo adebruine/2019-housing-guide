@@ -1,9 +1,16 @@
 .title-wrapper {
-  width: 1000px;
-  text-align: center;
+  width: 100%;
+  text-align: left;
   margin: 0 auto;
   position: relative;
-  padding: 20px 45px;
+  padding: 20px 15px;
+
+  &.dorm-page-title {
+    text-align: left;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+  }
 
   .nbn-presents {
     width: 100%;
@@ -21,10 +28,14 @@
   }
 
   .head {
-    text-align: center;
+    text-align: left;
     font-size: 50px;
     text-transform: uppercase;
     padding: 10px 0;
+
+    &.dorm-head {
+      text-align: left;
+    }
 
   }
   span.the {
@@ -36,9 +47,18 @@
   }
 
   .blurb {
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 750px;
+    //margin: 0 auto;
     padding-top: 30px;
+
+    p {
+      font-family: $body;
+      line-height: 1.2em;
+    }
+
+    &.dorm-page-blurb {
+      display: none;
+    }
   }
 }
 
@@ -76,4 +96,195 @@
 
 .match {
   background-color: teal;
+}
+
+.header-wrapper {
+    display: flex;
+}
+.dorm-content-wrapper{
+    display: flex;
+    justify-content: center;
+
+    .left-bar{
+      max-width: 300px;
+      padding: 10px;
+
+      .info {
+        padding-top: 20px;
+      }
+
+      .vitals {
+        text-transform: uppercase;
+        //color: #007f97;
+        font-weight: 700;
+      }
+
+      .walk, .size-math, .perks, .size {
+
+        p {
+          font-family: $body;
+          line-height: 1.4em;
+        }
+
+      }
+
+      .side {
+        font-weight: 700;
+        text-transform: lowercase;
+
+      }
+      .value {
+        font-weight: 700;
+      }
+
+      .walk {
+        padding: 2px 0;
+
+
+      }
+
+      .size-math {
+        padding: 25px 0;
+      }
+    }
+
+    .main-bar {
+      padding: 10px;
+      max-width: 750px;
+
+      .dorm-name {
+        font-size: 40px;
+        //font-weight: bold;
+        padding-bottom: 5px;
+      }
+
+      .dorm-address {
+        font-size: 25px;
+
+      }
+
+      .dorm-blurb {
+        font-family: $body;
+        max-width: 700px;
+        line-height: 1.5em;
+        padding: 25px 0;
+      }
+
+      #embed-container {
+      	display: block;
+      	position: relative;
+      	padding-bottom: 56.25%;
+      	height: 0;
+      	overflow: hidden;
+      }
+
+      #embed-container iframe {
+      	position: absolute;
+      	top: 0;
+      	left: 0;
+      	width: 100%;
+      	height: 100%;
+      }
+    }
+}
+
+.navbar {
+  align-self: center;
+
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  cursor: pointer;
+  width: 250px;
+  font-size: 16px;
+  border: 1px solid gray;
+  outline: none;
+  color: gray;
+  padding: 5px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
+  //background-color: gray;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  max-height: 300px;
+  overflow: scroll;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display: block;
+}
+
+// ADVERTISEMENTS -----------------------------------------------
+
+.dormpage-ad {
+  text-align: right;
+  padding-top: 25px;
+
+  p {
+    //text-transform: uppercase;
+    font-size: 14px;
+    color: #B6ACD1;
+    padding-bottom: 5px;
+  }
+  img {
+    width: 100%;
+  }
+}
+
+.homepage-ad {
+  text-align: right;
+  padding: 20px;
+  width: 400px;
+
+  p {
+    //text-transform: uppercase;
+    font-size: 14px;
+    color: #B6ACD1;
+    padding-bottom: 5px;
+  }
+  img {
+    width: 100%;
+  }
+}
+
+#dorm-map {
+  height: 250px;
 }

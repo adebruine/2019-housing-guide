@@ -1,22 +1,98 @@
 {% extends 'base.html' %}
 
-{% set jsPackName = 'main' %}
+{% set jsPackName = 'dorms' %}
 {% set context = data.text %}
 
 {% set authorComma = joiner() %}
 
-{% set dorms = data.dorms.dorms[0] %}
+{% set thisdorm = data.dorms.dorms[1] %}
+{% set dorms = data.dorms.dorms %}
 
 {% block content %}
 
-<div class="dorm-name"> {{ dorms.name }}</div>
+
+<div class="title-wrapper dorm-page-title">
+  <div class="text-title-wrap">
+    <div class="nbn-presents">North by Northwestern + <span class="res-e"><img src="./../assets/rezessentials.jpg"></span> present</div>
+    <div class="head dorm-head"><span class="the">The</span> <span class="hg">Housing Guide</span> <span class="year">2019</span></div>
+  </div>
+
+  <div class="navbar">
+    <div class="dropdown">
+    <button class="dropbtn">Select a dorm  <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content" id="myDropdown">
+      {% for item in dorms %}
+        <a href="#">{{ item.short_name  }}</a>
+      {% endfor %}
+    </div>
+    </div>
+  </div>
+</div>
+
+<hr class="break">
+
+<div class="dorm-content-wrapper">
+  <div class="left-bar">
+    <div id='dorm-map'></div>
+
+    <div class="info">
+      <div class="vitals">Vital stats</div>
+      <br>
+      <div class="walk">
+        <p>{{ thisdorm.short_name }} is on <span class="side"> {{ thisdorm.campus_side }}</span> campus </p>
+        <p><span class="value">{{ thisdorm.dist_to_tech }}</span> minute walk to Tech</p>
+        <p><span class="value">{{ thisdorm.dist_to_norris }}</span> minute walk to Norris</p>
+        <p><span class="value">{{ thisdorm.dist_to_rock }}</span> minute walk to the Rock</p>
+      </div>
+
+        <div class="size-math">
+          <p><span class="value">{{thisdorm.singles }}</span> singles</p>
+          <p>+ <span class="value">{{ thisdorm.doubles }}</span> doubles</p>
+          <p>+ <span class="value">{{thisdorm.triples }}</span> triples</p>
+          <hr>
+          <p><span class="value">{{ thisdorm.size }}</span> residents </p>
+        </div>
+
+        {% if thisdorm.room_dimensions  %}
+        <div class="size"><p>Size of a double: <span class="value">{{ thisdorm.room_dimensions }}</span></p></div>
+        {% endif %}
+        <br>
+
+        <div class="perks">
+          <p>{{ "&#x2705" if (thisdorm.dining == true)  else "&#x274C"}} Dining hall</p>
+          <p>{{ "&#x2705" if (thisdorm.has_ac == true)  else "&#x274C"}} Air conditioning</p>
+        </div>
+
+        <div class="dormpage-ad">
+          <p>Advertisement</p>
+          <a href="https://rezessentials.com/" target="_blank">
+            <img src="./../assets/SecondAd.png">
+          </a>
+        </div>
+      </div>
+
+</div>
+  <div class="main-bar">
+    <div class="dorm-name"> {{ thisdorm.name }}</div>
+    <div class="dorm-address"> {{ thisdorm.address }}</div>
+
+    <div class="dorm-blurb"> {{ thisdorm.blurb }}</div>
+
+  {% if thisdorm.video_embed %}
+  <div id="embed-container">
+    <iframe src="{{ thisdorm.video_embed }}" allowFullScreen></iframe>
+  </div>
+  {% endif %}
+
+  </div>
+</div>
 
 {% endblock content %}
 
 {% block inline_data %}
+
 <script>
-  window.ttData = {
-    gutenTag: '{{ context.guten_tag or "subject-politics" }}'
-  };
+
 </script>
 {% endblock inline_data %}

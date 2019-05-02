@@ -28,7 +28,8 @@ module.exports = {
       fileId: '1A8ewpQcOSPpM9qAwVNKsm_63x0n5RlfcJy7mpxJp158',
       type: 'sheet',
       name: 'dorms',
-    },,
+    },
+    ,
   ],
   /**
    * The dataMutators option makes it possible to modify what's returned by
