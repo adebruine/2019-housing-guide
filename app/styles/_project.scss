@@ -10,6 +10,10 @@
     margin: 0;
     display: flex;
     justify-content: space-between;
+
+    @media screen and (max-width: 650px) {
+        flex-direction: column;
+    }
   }
 
   .nbn-presents {
@@ -104,13 +108,25 @@
 .dorm-content-wrapper{
     display: flex;
     justify-content: center;
+    @media screen and (max-width: 750px) {
+      flex-direction: column-reverse;
+    }
 
     .left-bar{
-      max-width: 300px;
       padding: 10px;
-
+      @media screen and (min-width: 550px) {
+        display: flex;
+      }
+      @media screen and (min-width: 751px) {
+        display: unset;
+        max-width: 300px;
+      }
+      
       .info {
         padding-top: 20px;
+        @media screen and (max-width: 750px) {
+            flex: 1;
+        }
       }
 
       .vitals {
@@ -287,4 +303,8 @@
 
 #dorm-map {
   height: 250px;
+  @media screen and (max-width: 750px) {
+      margin-right: 2%;
+      flex: 1;
+  }
 }

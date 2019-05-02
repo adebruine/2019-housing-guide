@@ -39,29 +39,31 @@
     <div class="info">
       <div class="vitals">Vital stats</div>
       <br>
-      <div class="walk">
-        <p>{{ thisdorm.short_name }} is on <span class="side"> {{ thisdorm.campus_side }}</span> campus </p>
-        <p><span class="value">{{ thisdorm.dist_to_tech }}</span> minute walk to Tech</p>
-        <p><span class="value">{{ thisdorm.dist_to_norris }}</span> minute walk to Norris</p>
-        <p><span class="value">{{ thisdorm.dist_to_rock }}</span> minute walk to the Rock</p>
-      </div>
-
-        <div class="size-math">
-          <p><span class="value">{{thisdorm.singles }}</span> singles</p>
-          <p>+ <span class="value">{{ thisdorm.doubles }}</span> doubles</p>
-          <p>+ <span class="value">{{thisdorm.triples }}</span> triples</p>
-          <hr>
-          <p><span class="value">{{ thisdorm.size }}</span> residents </p>
+      <div class="vitals-container">
+        <div class="walk">
+          <p>{{ thisdorm.short_name }} is on <span class="side"> {{ thisdorm.campus_side }}</span> campus </p>
+          <p><span class="value">{{ thisdorm.dist_to_tech }}</span> minute walk to Tech</p>
+          <p><span class="value">{{ thisdorm.dist_to_norris }}</span> minute walk to Norris</p>
+          <p><span class="value">{{ thisdorm.dist_to_rock }}</span> minute walk to the Rock</p>
         </div>
 
-        {% if thisdorm.room_dimensions  %}
-        <div class="size"><p>Size of a double: <span class="value">{{ thisdorm.room_dimensions }}</span></p></div>
-        {% endif %}
-        <br>
+          <div class="size-math">
+            <p><span class="value">{{thisdorm.singles }}</span> singles</p>
+            <p>+ <span class="value">{{ thisdorm.doubles }}</span> doubles</p>
+            <p>+ <span class="value">{{thisdorm.triples }}</span> triples</p>
+            <hr>
+            <p><span class="value">{{ thisdorm.size }}</span> residents </p>
+          </div>
 
-        <div class="perks">
-          <p>{{ "&#x2705" if (thisdorm.dining == true)  else "&#x274C"}} Dining hall</p>
-          <p>{{ "&#x2705" if (thisdorm.has_ac == true)  else "&#x274C"}} Air conditioning</p>
+          {% if thisdorm.room_dimensions  %}
+          <div class="size"><p>Size of a double: <span class="value">{{ thisdorm.room_dimensions }}</span></p></div>
+          {% endif %}
+          <br>
+
+          <div class="perks">
+            <p>{{ "&#x2705" if (thisdorm.dining == true)  else "&#x274C"}} Dining hall</p>
+            <p>{{ "&#x2705" if (thisdorm.has_ac == true)  else "&#x274C"}} Air conditioning</p>
+          </div>
         </div>
 
         <div class="dormpage-ad">
