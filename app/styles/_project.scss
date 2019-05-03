@@ -78,7 +78,6 @@
     font-family: $body;
     margin: 20px;
 
-
     td {
       padding-right: 10px;
     }
@@ -99,6 +98,33 @@
 
   .filter-dorms {
     margin: 20px;
+
+    .filter-option {
+      //font-family: $headline;
+    }
+
+    ul {
+      padding-bottom: 10px;
+      line-height: 1.5em;
+    }
+
+    ul > li {
+      font-family: $body;
+    }
+
+    .clear-filter {
+      text-transform: uppercase;
+      //border: 2px solid #B6ACD1;
+      background: #B6ACD1;
+      color: white;
+      padding: 3px;
+      width: auto;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
 
   }
 
@@ -186,7 +212,7 @@ hr {
 }
 
 .match {
-  background-color: teal;
+  background-color: #B6ACD1;
 }
 
 .header-wrapper {
