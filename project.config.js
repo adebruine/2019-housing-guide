@@ -11,15 +11,15 @@ module.exports = {
   /**
    * The destination S3 bucket for a deploy.
    */
-  bucket: 'moose.texastribune.org',
+  bucket: 'apps.northbynorthwestern.com',
   /**
    * The folder (or "Key" in S3 lingo) to deploy the project into.
    */
-  folder: 'features/2019/2019-housing-guide',
+  folder: '/housing/2019/',
   /**
    * The S3 bucket that's used to store raw asset and workspace files.
    */
-  assetsBucket: 'data-visuals-raw-assets',
+  assetsBucket: 'housing/2019/',
   /**
    * Any Google Doc and Google Sheet files to be synced with this project.
    */

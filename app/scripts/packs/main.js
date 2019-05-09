@@ -79,33 +79,13 @@ var allDorms = dormList.map(function(dorm) {
 });
 console.log(allDorms);
 
+var selections = {};
+var numCriteria = $('.filter').length;
+console.log(numCriteria)
+var criteria = ['north', 'south', 'college', 'community', 'hall', 'small', 'medium', 'large', 'AC', 'dining', 'female', 'freshmen', 'opengender'];
+
 // mega json of filters and matches
 var allFilters = {};
-
-// type of dorm
-allFilters.college = dormList
-  .filter(function(dorm) {
-    return dorm.dorm_type == 'College';
-  })
-  .map(function(dorm) {
-    return dorm.name;
-  });
-
-allFilters.community = dormList
-  .filter(function(dorm) {
-    return dorm.dorm_type == 'Community';
-  })
-  .map(function(dorm) {
-    return dorm.name;
-  });
-
-allFilters.hall = dormList
-  .filter(function(dorm) {
-    return dorm.dorm_type == 'Hall';
-  })
-  .map(function(dorm) {
-    return dorm.name;
-  });
 
 // side of campus
 allFilters.north = dormList
@@ -123,6 +103,58 @@ allFilters.south = dormList
   .map(function(dorm) {
     return dorm.name;
   });
+
+  // dorm size
+  allFilters.small = dormList
+    .filter(function(dorm) {
+      return dorm.size <= 100;
+    })
+    .map(function(dorm) {
+      return dorm.name;
+    });
+
+  allFilters.medium = dormList
+    .filter(function(dorm) {
+      return dorm.size > 100 && dorm.size <= 200;
+    })
+    .map(function(dorm) {
+      return dorm.name;
+    });
+
+  allFilters.large = dormList
+    .filter(function(dorm) {
+      return dorm.size > 200;
+    })
+    .map(function(dorm) {
+      return dorm.name;
+    });
+
+// type of dorm
+
+allFilters.hall = dormList
+  .filter(function(dorm) {
+    return dorm.dorm_type == 'Hall';
+  })
+  .map(function(dorm) {
+    return dorm.name;
+  });
+
+  allFilters.community = dormList
+    .filter(function(dorm) {
+      return dorm.dorm_type == 'Community';
+    })
+    .map(function(dorm) {
+      return dorm.name;
+    });
+
+    allFilters.college = dormList
+      .filter(function(dorm) {
+        return dorm.dorm_type == 'College';
+      })
+      .map(function(dorm) {
+        return dorm.name;
+      });
+
 
 // miscellaneous perks
 allFilters.ac = dormList
@@ -148,41 +180,21 @@ allFilters.dining = dormList
   .map(function(dorm) {
     return dorm.name;
   });
-// dorm size
-allFilters.small = dormList
-  .filter(function(dorm) {
-    return dorm.size <= 100;
-  })
-  .map(function(dorm) {
-    return dorm.name;
-  });
-
-allFilters.medium = dormList
-  .filter(function(dorm) {
-    return dorm.size > 100 && dorm.size <= 200;
-  })
-  .map(function(dorm) {
-    return dorm.name;
-  });
-
-allFilters.large = dormList
-  .filter(function(dorm) {
-    return dorm.size > 200;
-  })
-  .map(function(dorm) {
-    return dorm.name;
-  });
-
-console.log(allFilters.small);
-
-console.log(allFilters);
 
 var selections = {};
 
-$('.filter').change(function() {
-  // which filter was checked?
-  var criteria = $(this).attr('id');
-  // array of all checked boxes
+var count = function(obj) {
+  var num = 0;
+  for (var i in obj) {
+    if (obj[i] == true) {
+      num += 1;
+    }
+  }
+  return num;
+}
+
+$('.filter').change(function(i, elem) {
+
   $('.filter').map(function(i, elem) {
     selections[
       $(elem)
@@ -191,14 +203,24 @@ $('.filter').change(function() {
     ] = elem.checked;
   });
 
+  var numSelected = count(selections)
+
   $('.dorm-row').each(function(i, elem) {
     var name = $(elem).data('fullname');
 
-    if (allFilters[criteria].includes(name)) {
-      console.log(allFilters[criteria]);
-      console.log(name + ' match');
-      $(this).addClass('match');
+    var matchCount = 0;
+    for (var i = 0; i < criteria.length; i++) {
+      if (selections[criteria[i]] == true && allFilters[criteria[i]].includes(name)){
+        console.log(name, "match");
+        matchCount +=1;
+      }
     }
+
+    if (matchCount == numSelected) {
+       $(this).addClass('match');
+     } else {
+       $(this).removeClass('match');
+     }
   });
 });
 

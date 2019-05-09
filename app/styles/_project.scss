@@ -82,8 +82,14 @@
       padding-right: 10px;
     }
 
-    tr {
+    tr.dorm-row {
       border-bottom: 1px solid #c3bccf;
+      &:hover {
+        background-color: #836EAA;
+        td {
+          color: white;
+        }
+      }
     }
 
     tr > td > p.dorm-name {
