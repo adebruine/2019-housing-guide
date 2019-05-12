@@ -26,7 +26,7 @@
       <tbody>
     {% for item in dorms %}
       <tr class="dorm-row" data-fullname="{{ item.name }}" data-marker="{{ loop.index0 }}">
-        <td><p class="dorm-name">{{ item.short_name }}</p></td>
+        <td><p class="dorm-name"><a href="/{{ item.slug }}">{{ item.short_name }}</a></p></td>
         <td><p class="dorm-size">{{ item.size }}</p></td>
         <td><p class="dorm-type">{{ item.dorm_type }}</p></td>
       </tr>

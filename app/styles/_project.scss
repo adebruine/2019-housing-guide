@@ -82,6 +82,17 @@
     font-family: $body;
     margin: 20px;
 
+    a {
+      text-decoration: none;
+    }
+
+    thead > tr >td {
+      padding: 5px;
+      border-bottom: 3px solid #c3bccf;
+      //text-transform: uppercase;
+      font-weight: bold;
+    }
+
     td {
       padding-right: 10px;
     }
@@ -172,7 +183,7 @@
 
 a, a:visited {
   text-decoration: none;
-  color: black;
+  color: inherit;
 }
 
 hr {
@@ -244,7 +255,7 @@ hr {
         display: unset;
         max-width: 300px;
       }
-      
+
       .info {
         padding-top: 20px;
         @media screen and (max-width: 750px) {

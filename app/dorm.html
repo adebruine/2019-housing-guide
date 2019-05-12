@@ -23,7 +23,7 @@
     </button>
     <div class="dropdown-content" id="myDropdown">
       {% for item in dorms %}
-        <a href="#">{{ item.short_name  }}</a>
+        <a href="../{{item.slug}}">{{ item.short_name  }}</a>
       {% endfor %}
     </div>
     </div>

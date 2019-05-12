@@ -81,8 +81,22 @@ console.log(allDorms);
 
 var selections = {};
 var numCriteria = $('.filter').length;
-console.log(numCriteria)
-var criteria = ['north', 'south', 'college', 'community', 'hall', 'small', 'medium', 'large', 'AC', 'dining', 'female', 'freshmen', 'opengender'];
+console.log(numCriteria);
+var criteria = [
+  'north',
+  'south',
+  'college',
+  'community',
+  'hall',
+  'small',
+  'medium',
+  'large',
+  'AC',
+  'dining',
+  'female',
+  'freshmen',
+  'opengender',
+];
 
 // mega json of filters and matches
 var allFilters = {};
@@ -147,13 +161,13 @@ allFilters.hall = dormList
       return dorm.name;
     });
 
-    allFilters.college = dormList
-      .filter(function(dorm) {
-        return dorm.dorm_type == 'College';
-      })
-      .map(function(dorm) {
-        return dorm.name;
-      });
+  allFilters.college = dormList
+    .filter(function(dorm) {
+      return dorm.dorm_type == 'College';
+    })
+    .map(function(dorm) {
+      return dorm.name;
+    });
 
 
 // miscellaneous perks
@@ -191,10 +205,9 @@ var count = function(obj) {
     }
   }
   return num;
-}
+};
 
 $('.filter').change(function(i, elem) {
-
   $('.filter').map(function(i, elem) {
     selections[
       $(elem)
@@ -203,26 +216,37 @@ $('.filter').change(function(i, elem) {
     ] = elem.checked;
   });
 
-  var numSelected = count(selections)
+var numSelected = count(selections);
 
+if (numSelected) {
   $('.dorm-row').each(function(i, elem) {
     var name = $(elem).data('fullname');
 
     var matchCount = 0;
     for (var i = 0; i < criteria.length; i++) {
-      if (selections[criteria[i]] == true && allFilters[criteria[i]].includes(name)){
-        console.log(name, "match");
-        matchCount +=1;
+      if (
+
+        selections[criteria[i]] == true &&
+
+        allFilters[criteria[i]].includes(name)
+
+      ) {
+        console.log(name, 'match');
+        matchCount +=  1;
       }
     }
 
     if (matchCount == numSelected) {
-       $(this).addClass('match');
-     } else {
-       $(this).removeClass('match');
-     }
-  });
+      $(this).addClass('match');
+   } else {
+      $(this).removeClass('match');
+   }
+ });
+} else {
+  $(".dorm-row").removeClass('match');
+}
 });
+
 
 $('.clear-filter').click(function() {
   clearFilter();
@@ -232,5 +256,3 @@ function clearFilter() {
   $('.filter').prop('checked', false);
   $('.dorm-row').removeClass('match');
 }
-
-console.log('make a map');

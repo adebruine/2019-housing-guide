@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% set jsPackName = 'dorms' %}
+{% set context = data.text %}
+
+{% set authorComma = joiner() %}
+
+{% block content %}
+
+
+<div class="title-wrapper dorm-page-title">
+  <div class="text-title-wrap">
+    <div class="nbn-presents">North by Northwestern + <span class="res-e"><img src="./../assets/rezessentials.jpg"></span> present</div>
+    <div class="head dorm-head"><span class="the">The</span> <span class="hg">Housing Guide</span> <span class="year">2019</span></div>
+  </div>
+
+  <div class="navbar">
+    <div class="dropdown">
+    <button class="dropbtn">Select a dorm  <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content" id="myDropdown">
+      <a href="../1838-chicago">1838 Chicago</a>
+      <a href="../allison">Allison</a>
+      <a href="../ayers">Ayers</a>
+      <a href="../bobb-mcculloch">Bobb-McCulloch</a>
+      <a href="../chapin">Chapin</a>
+      <a href="../college-of-cultural-and-community-studies">College of Cultural and Community Studies</a>
+      <a href="../east-fairchild">East Fairchild</a>
+      <a href="../elder">Elder</a>
+      <a href="../goodrich">Goodrich</a>
+      <a href="../green-house">GREEN House</a>
+      <a href="../hobart-house">Hobart House</a>
+      <a href="../jones">Jones</a>
+      <a href="../parc">PARC</a>
+      <a href="../rogers-house">Rogers House</a>
+      <a href="../sargent">Sargent Hall</a>
+      <a href="../slivka">Slivka</a>
+      <a href="../shepard-residential-college">Shepard Residential College</a>
+      <a href="../shepard-hall">Shepard Hall</a>
+      <a href="../west-fairchild">West Fairchild</a>
+      <a href="../willard">Willard</a>
+      <a href="../560-lincoln">Lincoln</a>
+      <a href="../1856-orrington">Orrington</a>
+    </div>
+    </div>
+  </div>
+</div>
+
+<hr class="break">
+
+<div class="dorm-content-wrapper">
+  <div class="left-bar">
+    <div id='dorm-map'></div>
+
+    <div class="info">
+      <div class="vitals">Vital stats</div>
+      <br>
+      <div class="vitals-container">
+        <div class="walk">
+          <p>{{ short_name }} is on <span class="side"> {{ campus_side }}</span> campus </p>
+          <p><span class="value">{{ dist_to_tech }}</span> minute walk to Tech</p>
+          <p><span class="value">{{ dist_to_norris }}</span> minute walk to Norris</p>
+          <p><span class="value">{{ dist_to_rock }}</span> minute walk to the Rock</p>
+        </div>
+
+          <div class="size-math">
+            <p><span class="value">{{singles }}</span> singles</p>
+            <p>+ <span class="value">{{ doubles }}</span> doubles</p>
+            <p>+ <span class="value">{{triples }}</span> triples</p>
+            <hr>
+            <p><span class="value">{{ size }}</span> residents </p>
+          </div>
+
+          {% if room_dimensions  %}
+          <div class="size"><p>Size of a double: <span class="value">{{ room_dimensions }}</span></p></div>
+          {% endif %}
+          <br>
+
+          <div class="perks">
+            <p>{{ "&#x2705" if (dining == true)  else "&#x274C"}} Dining hall</p>
+            <p>{{ "&#x2705" if (has_ac == true)  else "&#x274C"}} Air conditioning</p>
+          </div>
+        </div>
+
+        <div class="dormpage-ad">
+          <p>Advertisement</p>
+          <a href="https://rezessentials.com/" target="_blank">
+            <img src="./../assets/SecondAd.png">
+          </a>
+        </div>
+      </div>
+
+</div>
+  <div class="main-bar">
+    <div class="dorm-name"> {{ name }}</div>
+    <div class="dorm-address"> {{ address }}</div>
+
+    <div class="dorm-blurb"> {{ blurb }}</div>
+
+  {% if video_embed %}
+  <div id="embed-container">
+    <iframe src="{{ video_embed }}" allowFullScreen></iframe>
+  </div>
+  {% endif %}
+
+  </div>
+</div>
+
+{% endblock content %}
+
+{% block inline_data %}
+
+<script>
+
+</script>
+{% endblock inline_data %}
